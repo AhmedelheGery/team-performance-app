@@ -1,11 +1,11 @@
 <template>
   <div class="c-chart__container">
-    <v-chart ref="chart" :option="chartOptions" />
+    <v-chart v-if="chartData.length" ref="chart" :option="chartOptions" />
+    <h2 v-else class="c-empty_data">No chart results for selected date</h2>
   </div>
 </template>
 
 <script>
-import moment from "moment";
 import { use } from "echarts/core";
 import { CanvasRenderer } from "echarts/renderers";
 import { LineChart } from "echarts/charts";
@@ -16,6 +16,7 @@ import {
   VisualMapComponent,
 } from "echarts/components";
 import VChart from "vue-echarts";
+import moment from "moment";
 
 use([
   CanvasRenderer,
