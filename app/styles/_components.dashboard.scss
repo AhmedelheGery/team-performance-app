@@ -34,11 +34,20 @@
   padding: 16px 8px;
   border: 1px solid #dcdee3;
   background-color: #e5e9f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .c-filter{
+    margin: 0 15px;;
+  }
 }
 
 .c-chart__container {
   height: 350px;
   width: 760px;
+  .c-empty_data{
+    text-align: center;
+  }
 }
 
 .c-button {
