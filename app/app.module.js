@@ -3,6 +3,7 @@ import 'ngVue';
 import 'ngVue/build/plugins.js';
 import PerformancePageComponent from './pages/performance-page.vue';
 import PerformanceChartComponent from './components/vue-components/performance-chart.vue';
+import PerformanceFilterComponent from './components/vue-components/filter-input.vue';
 
 angular.module('appModule', [
   'ui.router',
@@ -17,3 +18,14 @@ angular.module('appModule').directive('vPerformancePage', (createVueComponent) =
 angular.module('appModule').directive('vPerformanceChart', (createVueComponent) => {
   return createVueComponent(Vue.component('performanceChartComponent', PerformanceChartComponent));
 });
+
+angular.module('appModule').directive('vPerformanceFilter', (createVueComponent) => {
+  return createVueComponent(Vue.component('performanceFilterComponent', PerformanceFilterComponent));
+});
+
+// strict contextual escaping
+angular.module('appModule').filter('trust', ['$sce', function ($sce) {
+  return function (htmlCode) {
+    return $sce.trustAsHtml(htmlCode);
+  };
+}]);
