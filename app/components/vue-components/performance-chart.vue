@@ -54,6 +54,16 @@ export default {
           confine: false,
           hideDelay: 0,
           padding: 0,
+          formatter: function (params) {
+            return `
+        <div class="c-tooltip">
+          <div class="c-title">${params[0].axisValueLabel}</div>
+          <div class="c-data">
+                ${params[0].marker} Team Performance Index: ${params[0].data}%
+          </div>
+        </div>
+`;
+          },
         },
         grid: {
           left: "30px",
@@ -93,6 +103,27 @@ export default {
             },
           },
         ],
+                visualMap: {
+          top: 50,
+          right: 10,
+          pieces: [
+            {
+              gt: 0,
+              lte: 50,
+              color: "red",
+            },
+            {
+              gt: 50,
+              lte: 80,
+              color: "yellow",
+            },
+            {
+              gt: 80,
+              lte: 100,
+              color: "green",
+            },
+          ],
+        },
       };
     },
 
