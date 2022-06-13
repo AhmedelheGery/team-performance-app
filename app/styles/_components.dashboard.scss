@@ -48,6 +48,24 @@
   .c-empty_data{
     text-align: center;
   }
+  .c-tooltip {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #223048;
+    border-radius: 2px;
+    .c-title {
+      font-size: 15px;
+      font-weight: bold;
+      color: #fff;
+    }
+    .c-data {
+      font-size: 14px;
+      color: #fff;
+    }
+  }
+
 }
 
 .c-button {
@@ -58,3 +76,4 @@
   padding: 0 16px;
   border-radius: 4px;
 }
+
