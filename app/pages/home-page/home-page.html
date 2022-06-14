@@ -9,6 +9,13 @@
 
   <employees-list employees-list="homePageVm.employees"></employees-list>
   <div class="c-dashboard__footer">
-    <button class="c-button">Load More</button>
+    <button 
+    class="c-button" 
+    ng-disabled="homePageVm.isLoading" 
+    ng-click="homePageVm.handleLoadMoreEmployees()"
+    ng-hide="homePageVm.isMoreData" 
+    >
+      {{ homePageVm.isLoading ? 'Loading' : 'Load more' }}
+    </button>
   </div>
 </div>

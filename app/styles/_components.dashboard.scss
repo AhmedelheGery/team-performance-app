@@ -77,6 +77,12 @@
   border-radius: 4px;
 }
 
+.c-button[disabled]{
+  background-color: #ccc;
+  color: #000;
+}
+
+
 .c-error__container{
   min-height: 600px;
   display: flex;
