@@ -1,10 +1,9 @@
-angular.module('appModule')
+angular
+  .module('appModule')
   .config(($locationProvider) => {
-    $locationProvider.html5Mode({
-      enabled: true,
-    });
+    $locationProvider.html5Mode(false);
   })
-  .config(($stateProvider) => {
+  .config(($stateProvider, $urlRouterProvider) => {
     $stateProvider
       .state({
         name: 'app',
@@ -17,5 +16,19 @@ angular.module('appModule')
         name: 'team-performance',
         url: '/team-performance',
         template: '<v-performance-page></v-performance-page>',
+      })
+      .state({
+        name: 'error-page',
+        url: '/404',
+        template: '<v-error-page></v-error-page>',
       });
+    $urlRouterProvider.otherwise(function ($injector, $location) {
+      var state = $injector.get('$state');
+      if ($location.path() === '') {
+        state.go('app', { filter: '' });
+      } else {
+        state.go('error-page');
+      }
+      return $location.path();
+    });
   });

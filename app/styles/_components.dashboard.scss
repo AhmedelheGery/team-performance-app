@@ -77,3 +77,14 @@
   border-radius: 4px;
 }
 
+.c-error__container{
+  min-height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .c-error-text{
+    font-size: 55px;
+    font-weight: bold;
+  }
+}
+
