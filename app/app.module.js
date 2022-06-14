@@ -5,6 +5,7 @@ import store from './store';
 import PerformancePageComponent from './pages/performance-page.vue';
 import PerformanceChartComponent from './components/vue-components/performance-chart.vue';
 import PerformanceFilterComponent from './components/vue-components/filter-input.vue';
+import ErrorPageComponent from './components/404/error-page.vue';
 
 angular.module('appModule', [
   'ui.router',
@@ -31,11 +32,13 @@ angular.module('appModule').filter('trust', ['$sce', function ($sce) {
   };
 }]);
 
-// console.log('store', store);
-
 angular.module('appModule')
   .config(($ngVueProvider) => {
     $ngVueProvider.setRootVueInstanceProps({
       store,
     });
   });
+
+angular.module('appModule').directive('vErrorPage', (createVueComponent) => {
+  return createVueComponent(Vue.component('errorPageComponent', ErrorPageComponent));
+});
